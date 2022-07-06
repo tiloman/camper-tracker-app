@@ -4,15 +4,18 @@ require 'sinatra/activerecord'
 class Log < ActiveRecord::Base
 end
 
-class App < Sinatra::Application
+helpers do
+  def valid_key?(key)
+    key.to_i == 123
+  end
 end
 
-get '/' do
-  @logs = Log.all
-  @logs.to_json
-end
+post '/logs' do
+  error 401 unless valid_key?(params[:key])
 
-post "/logs" do
-  @log = Log.new(params)
+  @log = Log.new(
+    client: params[:client],
+    temperature: params[:temperature]
+  )
   @log.save
 end
