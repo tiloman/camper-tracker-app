@@ -1,0 +1,8 @@
+default: &default
+  adapter: mysql2
+  host: localhost
+  username: timo
+
+development:
+  <<: *default
+  database: rudi_db
