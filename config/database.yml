@@ -1,8 +1,15 @@
 default: &default
-  adapter: mysql2
-  host: localhost
-  username: timo
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
 
 development:
   <<: *default
+  username: verleih
   database: rudi_db
+
+production:
+  <<: *default
+  database: rudi_db
+  username: timo
+  password: <%= ENV['RUDI_DATABASE_PASSWORD'] %>

@@ -2,5 +2,6 @@ source :rubygems
 gem 'sinatra'
 gem "sinatra-activerecord"
 gem 'activerecord'
-gem 'mysql2'
+gem 'pg'
 gem "rake"
+ruby '3.0.2'

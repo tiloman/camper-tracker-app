@@ -17,7 +17,7 @@ GEM
     minitest (5.16.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.4)
+    pg (1.4.1)
     rack (2.2.4)
     rack-protection (2.2.0)
       rack
@@ -37,13 +37,18 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  ruby
+  x86_64-linux
 
 DEPENDENCIES
   activerecord
-  mysql2
+  pg
   rake
   sinatra
   sinatra-activerecord
+
+RUBY VERSION
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.25
