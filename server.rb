@@ -10,6 +10,22 @@ helpers do
   end
 end
 
+get '/' do
+  'fuuuu'
+end
+
+
+get '/logs' do
+   error 401 unless valid_key?(params[:key])
+
+    @log = Log.new(
+    client: params[:client],
+    temperature: params[:temperature]
+  )
+  @log.save
+end
+
+
 post '/logs' do
   error 401 unless valid_key?(params[:key])
 
