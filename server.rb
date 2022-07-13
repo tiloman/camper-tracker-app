@@ -14,8 +14,10 @@ post '/logs' do
   error 401 unless valid_key?(params[:key])
 
   @log = Log.new(
-    client: params[:client],
-    temperature: params[:temperature]
+    client:      params[:client],
+    temperature: params[:temperature],
+    latitude:    params[:latitude],
+    longitude:   params[:longitude]
   )
   @log.save
 end
