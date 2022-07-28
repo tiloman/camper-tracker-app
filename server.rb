@@ -16,6 +16,7 @@ post '/logs' do
   @log = Log.new(
     client:      params[:client],
     temperature: params[:temperature],
+    humidity:    params[:humidity],
     latitude:    params[:latitude],
     longitude:   params[:longitude]
   )
