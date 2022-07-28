@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_154809) do
     t.datetime "updated_at", null: false
     t.string "latitude"
     t.string "longitude"
-    t.decimal "humindity"
+    t.decimal "humidity"
   end
 
 end
