@@ -18,7 +18,10 @@ post '/logs' do
     temperature: params[:temperature],
     humidity:    params[:humidity],
     latitude:    params[:latitude],
-    longitude:   params[:longitude]
+    longitude:   params[:longitude],
+    satellites:  params[:satellites],
+    speed:       params[:speed],
+    altitude:    params[:altitude]
   )
   @log.save
 end

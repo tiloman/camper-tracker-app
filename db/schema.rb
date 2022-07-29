@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_154809) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_29_133229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_154809) do
     t.string "latitude"
     t.string "longitude"
     t.decimal "humidity"
+    t.integer "satellites"
+    t.decimal "altitude"
+    t.decimal "speed"
   end
 
 end
