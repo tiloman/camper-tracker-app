@@ -1,8 +1,9 @@
-source :rubygems
-gem 'sinatra'
-gem "sinatra-activerecord"
+source 'https://rubygems.org'
 gem 'activerecord'
 gem 'pg'
-gem "rake"
 gem 'puma'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-activerecord'
 ruby '3.0.2'
+gem 'geocoder'
