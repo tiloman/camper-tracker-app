@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_30_111656) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_180041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_30_111656) do
     t.string "connected_wifi"
     t.string "address"
     t.string "country"
+    t.float "distance"
+    t.boolean "motion"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer "days_in_motion"
+    t.float "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
