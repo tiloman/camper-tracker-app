@@ -23,7 +23,7 @@ post '/logs' do
     [params[:latitude], params[:longitude]], [Log.last.latitude, Log.last.longitude]
     )
   distance_to_last_point > ENV['MOTION_THRESHOLD'].to_f ? motion = true : motion = false
-  corrected_speed = params[:speed].to_f > ENV['SPEED_THRESHOLD'].to_f ? params[:speed] : 0,
+  corrected_speed = params[:speed].to_f > ENV['SPEED_THRESHOLD'].to_f ? params[:speed] : 0
   corrected_distance = motion ? distance_to_last_point : 0,
 
   @log = Log.new(
