@@ -1,9 +1,8 @@
 # Camper-tracker-app
+Stores data from post requests to database... Post requests are sent by an esp32 device with tmp and gps-sensor.
+
+See https://github.com/tiloman/camper-tracker-device
 
 ## Installation
 
-
-## Post Request
-`localhost:4567/logs?client=esp33&temperature=23.21&key=XXX`
-`https://rudi.timolohmann.de/logs?client=esp32&temperature=23.6&key=XXX`
 
