@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_01_180041) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_02_113943) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.datetime "arrived_at"
+    t.datetime "left_at"
+    t.string "name"
+    t.string "latitude"
+    t.string "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "logs", force: :cascade do |t|
     t.string "client"
@@ -30,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_01_180041) do
     t.string "country"
     t.float "distance"
     t.boolean "motion"
+    t.float "corrected_speed"
+    t.float "corrected_distance"
   end
 
   create_table "trips", force: :cascade do |t|
