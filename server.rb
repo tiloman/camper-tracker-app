@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'dotenv/load'
 require 'geocoder'
 require File.expand_path('../models/log.rb', __FILE__)
 require File.expand_path('../models/trip.rb', __FILE__)
@@ -7,10 +8,11 @@ require File.expand_path('../models/trip.rb', __FILE__)
 Geocoder.configure(:units => :km)
 HOME_ADDRESS = [50.888151, 6.998474].freeze
 MOTION_THRESHOLD = 0.5 #in km
+AUTH_TOKEN = 123
 
 helpers do
   def valid_key?(key)
-    key.to_i == 123
+    key.to_i == AUTH_TOKEN
   end
 end
 
@@ -18,6 +20,7 @@ post '/logs' do
   error 401 unless valid_key?(params[:key])
 
   geocoder = Geocoder.search([params[:latitude], params[:longitude]])
+  #unless lat and long == 0
   distance_to_last_point = Geocoder::Calculations.distance_between(
     [params[:latitude], params[:longitude]], [Log.last.latitude, Log.last.longitude]
     )
