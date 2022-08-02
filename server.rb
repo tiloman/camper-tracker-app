@@ -22,8 +22,8 @@ post '/logs' do
   distance_to_last_point = Geocoder::Calculations.distance_between(
     [params[:latitude], params[:longitude]], [Log.last.latitude, Log.last.longitude]
     )
-  distance_to_last_point > ENV['MOTION_THRESHOLD'].to_i ? motion = true : motion = false
-  corrected_speed = params[:speed].to_i > ENV['SPEED_THRESHOLD'].to_i ? params[:speed] : 0,
+  distance_to_last_point > ENV['MOTION_THRESHOLD'].to_f ? motion = true : motion = false
+  corrected_speed = params[:speed].to_f > ENV['SPEED_THRESHOLD'].to_f ? params[:speed] : 0,
   corrected_distance = motion ? distance_to_last_point : 0,
 
   @log = Log.new(
