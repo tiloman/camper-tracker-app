@@ -31,7 +31,7 @@ class Log < ActiveRecord::Base
   end
 
   def is_at_home?
-    Geocoder::Calculations.distance_between([latitude, longitude], ENV['HOME_ADDRESS']) < ENV['MOTION_THRESHOLD']
+    Geocoder::Calculations.distance_between([latitude, longitude], ENV['HOME_ADDRESS']) < ENV['MOTION_THRESHOLD'].to_f
   end
 
   def set_location
