@@ -2,11 +2,10 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'dotenv/load'
 require 'geocoder'
+
 require File.expand_path('../models/log.rb', __FILE__)
 require File.expand_path('../models/trip.rb', __FILE__)
 require File.expand_path('../models/location.rb', __FILE__)
-
-Geocoder.configure(:units => :km)
 
 helpers do
   def valid_key?(key)
