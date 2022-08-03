@@ -24,7 +24,8 @@ class Log < ActiveRecord::Base
 
   def self.was_home_yesterday?
     #could be a scope?
-    if logs = Log.created_at_day(Time.now - 1.day).in_motion.any?
+    logs = Log.created_at_day(Time.now - 1.day).in_motion
+    if logs.any?
       return logs.last.is_at_home?
     end
   end
